@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',      // enables static HTML export for Cloudflare Pages
+  output: process.env.CF_PAGES === '1' ? 'export' : undefined,
   images: {
-    unoptimized: true,   // required for static export
+    unoptimized: true,
   },
-  trailingSlash: true,   // better compatibility with Cloudflare routing
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
